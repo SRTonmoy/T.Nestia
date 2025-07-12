@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #1c1c1c;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #e0e0e0;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #4dd0e1;
+}
+
+.title span {
+  color: #00bcd4;
+}
+
+.container {
+  background: #2a2a2a;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 12px 12px 25px rgba(0, 0, 0, 0.6); /* Dark bottom-right shadow only */
+  width: 320px;
+}
+
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s;
+  color: #ccc;
+}
+
+.tabs button.active {
+  background: #3a3a3a;
+  box-shadow: inset 2px 2px 5px #1f1f1f, inset -2px -2px 5px #444444;
+  color: #fff;
+}
+
+.form {
+  display: none;
+  flex-direction: column;
+}
+
+.form.active {
+  display: flex;
+}
+
+input,
+select {
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #2a2a2a;
+  color: #fff;
+  box-shadow: inset 4px 4px 6px #1f1f1f, inset -4px -4px 6px #333333;
+}
+
+select {
+  font-size: 0.95em;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 12px;
+  background: #2a2a2a;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 6px 6px 10px #1a1a1a, -6px -6px 10px #333333;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #353535;
+}
+
+.or {
+  text-align: center;
+  margin: 15px 0 10px;
+  font-size: 0.85em;
+  color: #888;
+}
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+}
+
+.social {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #2a2a2a;
+  box-shadow: 6px 6px 10px #1a1a1a, -6px -6px 10px #333333;
+  font-size: 1.2em;
+  color: #00bcd4;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.social:hover {
+  background: #353535;
+}
+.forgot-link {
+  display: block;
+  text-align: right;
+  margin-top: 8px;
+  font-size: 0.85em;
+  color: #00bcd4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgot-link:hover {
+  color: #4dd0e1;
+  text-decoration: underline;
+}
+.validation-message {
+  font-size: 0.85em;
+  color: #ff5555; /* red for errors */
+  margin-top: 5px;
+  min-height: 18px; /* keep space so layout doesn't jump */
+}
+
+.validation-message.valid {
+  color: #4caf50; /* green for valid */
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome | T.Nestia</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h2 class="title">T.Nestia</h2>
+
+  <div class="container">
+    <div class="tabs">
+      <button id="loginTab" class="active">Login</button>
+      <button id="registerTab">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="form active" action="/auth/login" method="POST">
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+    </form>
+
+    <!-- Register Form -->
+    <form id="registerForm" class="form" action="/auth/register" method="POST">
+      <label for="userType">Select Type:</label>
+      <select name="role" id="userType" required>
+        <option value="">-- Select --</option>
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Organization">Organization</option>
+      </select>
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <div id="passwordMessage" class="validation-message"></div>
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
+      <div id="confirmPasswordMessage" class="validation-message"></div>
+      <button type="submit" class="btn"><i class="fas fa-user-plus"></i> Register</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

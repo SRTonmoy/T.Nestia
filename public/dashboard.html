@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T.Nestia Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/public/dashbaord.css" />
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <h2>T.Nestia</h2>
+    <div class="nav-item active">Dashboard</div>
+    <div class="nav-item">Classes</div>
+    <div class="nav-item">Assignments</div>
+    <div class="nav-item">Grades</div>
+    <div class="nav-item">People</div>
+    <div class="nav-item">Settings</div>
+  </aside>
+
+  <main class="main-content">
+    <div class="header">
+      <h1>Welcome, Boss!</h1>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Computer Science 101</h3>
+        <p>Introductory course to computer science principles and programming.</p>
+      </div>
+      <div class="card">
+        <h3>Data Structures</h3>
+        <p>Learn about arrays, linked lists, trees, and algorithms.</p>
+      </div>
+      <div class="card">
+        <h3>Operating Systems</h3>
+        <p>Explore concepts of processes, threads, memory management, and scheduling.</p>
+      </div>
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Frontend and backend development using modern web technologies.</p>
+      </div>
+      <!-- Add more cards as you want -->
+    </section>
+  </main>
+
+  <script>
+    // Simple logout simulation
+    function logout() {
+      alert("Logged out successfully!");
+      window.location.href = "index.html"; // back to login page
+    }
+
+    // Sidebar nav active toggle
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
