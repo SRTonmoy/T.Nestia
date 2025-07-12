@@ -119,6 +119,9 @@ select {
   bottom: 0;
   left: 0;
 }
+,.side-nav:hover{
+  color: #00bcd4;
+}
 
 .side-nav h2 {
   color: #00bcd4;

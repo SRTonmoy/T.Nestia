@@ -1,15 +1,169 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome | T.Nestia</title>
-  <link rel="stylesheet" href="/public/styles.css"/>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <title>T.Nestia Login/Register</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      flex-direction: column;
+    }
+
+    .site-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .site-header h1 {
+      font-size: 32px;
+      color: #4dd0e1;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .container {
+      background: #2a2a2a;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #444;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.3s;
+      color: #ccc;
+    }
+
+    .tabs button.active {
+      background: #4dd0e1;
+      color: #000;
+      box-shadow: 0 0 10px rgba(77, 208, 225, 0.5);
+    }
+
+    .form {
+      display: none;
+      flex-direction: column;
+    }
+
+    .form.active {
+      display: flex;
+    }
+
+    input,
+    select {
+      margin: 10px 0;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      background: #3a3a3a;
+      color: #fff;
+      font-size: 0.95rem;
+      box-shadow: inset 2px 2px 5px #1f1f1f, inset -2px -2px 5px #444;
+    }
+
+    select {
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 14px;
+      background: #4dd0e1;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+      box-shadow: 0 4px 10px rgba(77, 208, 225, 0.3);
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #3cc6d1;
+    }
+
+    .or {
+      text-align: center;
+      margin: 15px 0 10px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social {
+      background: #555;
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .social:hover {
+      background: #777;
+    }
+
+    .validation-message {
+      font-size: 0.85em;
+      color: #ff5555;
+      margin-top: 5px;
+      min-height: 18px;
+    }
+
+    .validation-message.valid {
+      color: #4caf50;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h2 class="title">T.Nestia</h2>
+
+  <header class="site-header">
+    <h1>Welcome to T.Nestia</h1>
+  </header>
 
   <div class="container">
     <div class="tabs">
@@ -18,28 +172,40 @@
     </div>
 
     <!-- Login Form -->
-    <form id="loginForm" class="form active" action="#" method="POST">
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <button type="submit" class="btn"><i class="fas fa-sign-in-alt"></i> Login</button>
+    <form id="loginForm" class="form active">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit" class="btn">Login</button>
+      <p class="or">Or continue with</p>
+      <div class="socials">
+        <button type="button" class="social">G</button>
+        <button type="button" class="social">f</button>
+        <button type="button" class="social">t</button>
+      </div>
     </form>
 
     <!-- Register Form -->
-    <form id="registerForm" class="form" action="#" method="POST">
+    <form id="registerForm" class="form">
       <label for="userType">Select Type:</label>
-      <select name="role" id="userType" required>
+      <select name="type" id="userType" required>
         <option value="">-- Select --</option>
         <option value="Student">Student</option>
         <option value="Teacher">Teacher</option>
         <option value="Organization">Organization</option>
       </select>
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email" required />
-      <input type="password" id="password" name="password" placeholder="Password" required />
-      <div id="passwordMessage" class="validation-message"></div>
+
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
       <input type="password" id="confirmPassword" placeholder="Confirm Password" required />
       <div id="confirmPasswordMessage" class="validation-message"></div>
-      <button type="submit" class="btn"><i class="fas fa-user-plus"></i> Register</button>
+      <button type="submit" class="btn">Register</button>
+      <p class="or">Or sign up with</p>
+      <div class="socials">
+        <button type="button" class="social">G</button>
+        <button type="button" class="social">f</button>
+        <button type="button" class="social">t</button>
+      </div>
     </form>
   </div>
 
@@ -82,6 +248,7 @@
     // Fake login redirect
     loginForm.addEventListener("submit", function (e) {
       e.preventDefault();
+      // alert("Logged in! Redirecting...");
       window.location.href = "dashboard.html";
     });
   </script>
